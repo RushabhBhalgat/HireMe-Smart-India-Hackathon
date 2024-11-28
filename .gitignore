@@ -1,4 +1,8 @@
 # Logs
+<<<<<<< HEAD
+=======
+env
+>>>>>>> master
 logs
 *.log
 npm-debug.log*
@@ -6,6 +10,10 @@ yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
 .pnpm-debug.log*
+<<<<<<< HEAD
+=======
+frontend/node_modules
+>>>>>>> master
 
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
