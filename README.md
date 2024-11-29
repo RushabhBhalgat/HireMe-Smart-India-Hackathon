@@ -1,10 +1,8 @@
 # HireMe
 
-HireMe is a web application designed to help users find job opportunities, register for job alerts, and manage their profiles. The application consists of a backend built with Django and a frontend built with React and Vite.
 
 ## Table of Contents
 
-- [Features](#features)
 - [Installation](#installation)
 - [Backend Setup](#backend-setup)
 - [Frontend Setup](#frontend-setup)
@@ -12,14 +10,7 @@ HireMe is a web application designed to help users find job opportunities, regis
 - [Contributing](#contributing)
 - [License](#license)
 
-## Features
 
-- User registration and login
-- Password reset functionality
-- Profile management
-- Job alerts and notifications
-- Integration with external APIs for job listings
-- Responsive design with Tailwind CSS
 
 ## Installation
 
