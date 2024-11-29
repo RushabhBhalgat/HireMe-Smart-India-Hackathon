@@ -1,125 +1,124 @@
-# Project Structure
+# HireMe
 
-```.gitignore
-backend/
-    .env
-    config/
-        db.js
-        passport.js
-    logs/
-    middleware/
-        logger.js
-    models/
-        User.js
-    package.json
-    routes/
-        auth.js
-    server.js
-frontend/
-    .gitignore
-    eslint.config.js
-    index.html
-    package.json
-    postcss.config.js
-    public/
-    README.md
-    src/
-        api/
-            authApi.js
-            axiosInstance.js
-        App.css
-        App.jsx
-        assets/
-        components/
-            Authentication/
-        index.css
-        main.jsx
-        Pages/
-            HomePage.jsx
-            LoginPage.jsx
-            RegisterPage.jsx
-    tailwind.config.js
-    vite.config.js
-stories.md
-```
+HireMe is a web application designed to help users find job opportunities, register for job alerts, and manage their profiles. The application consists of a backend built with Django and a frontend built with React and Vite.
 
-## Backend
+## Table of Contents
 
-Configuration
- - Database Configuration: The database connection is configured in ```db.js``` using Mongoose to connect to MongoDB.
-- Passport Configuration: Passport strategies for local and Google OAuth authentication are configured in ```passport.js```.
+- [Features](#features)
+- [Installation](#installation)
+- [Backend Setup](#backend-setup)
+- [Frontend Setup](#frontend-setup)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
 
-Models
-- User Model: The user schema is defined in User.js using Mongoose.
-Routes
-- Authentication Routes: The authentication routes are defined in auth.js. These routes handle user registration, login, logout, and Google OAuth.
+## Features
 
-Server
-- Server Setup: The server is set up in server.js. It uses Express, Passport, and MongoDB for session management and authentication.
+- User registration and login
+- Password reset functionality
+- Profile management
+- Job alerts and notifications
+- Integration with external APIs for job listings
+- Responsive design with Tailwind CSS
 
-## Frontend
+## Installation
 
-Configuration
-- Vite Configuration: The Vite configuration is defined in vite.config.js.
-- Tailwind CSS Configuration: Tailwind CSS is configured in tailwind.config.js.
-- PostCSS Configuration: PostCSS is configured in postcss.config.js.
-- ESLint Configuration: ESLint is configured in eslint.config.js.
+To get started with the HireMe project, follow these steps:
 
-API
-- Axios Instance: The Axios instance is configured in axiosInstance.js to communicate with the backend.
-- Auth API: The authentication API functions are defined in authApi.js.
+### Prerequisites
 
-Pages
-- Home Page: The home page is defined in HomePage.jsx.
-- Login Page: The login page is defined in LoginPage.jsx.
-- Register Page: The register page is defined in RegisterPage.jsx.
+- Node.js (v14 or higher)
+- npm or yarn
+- Python (v3.8 or higher)
+- pip
+- Virtualenv
 
-Main Application
-- App Component: The main application component is defined in App.jsx.
-- Main Entry Point: The main entry point is defined in main.jsx.
+### Backend Setup
 
-## Backend Installation
+1. Clone the repository:
 
-1. Navigate to the backend directory.
-2. Install dependencies:
-```
-npm install
-```
-3. Create a .env file with the following environment variables:
-```
-MONGO_URI=<your_mongo_uri>
-SESSION_SECRET=<your_session_secret>
-GOOGLE_CLIENT_ID=<your_google_client_id>
-GOOGLE_CLIENT_SECRET=<your_google_client_secret>
-```
+   ```sh
+   git clone https://github.com/yourusername/hireme.git
+   cd hireme/backend
+   ```
 
-4. Start the server:
-```
-npm run dev
-```
+2. Create a virtual environment and activate it:
 
-API Endpoints
-- POST /auth/register: Register a new user.
-- POST /auth/login: Login with email and password.
-- GET /auth/google: Initiate Google OAuth login.
-- GET /auth/google/callback: Google OAuth callback.
-- GET /auth/logout: Logout the user.
+   ```sh
+   python -m venv env
+   source env/bin/activate  # On Windows, use `env\Scripts\activate`
+   ```
 
-## Frontend Installation
+3. Install the required Python packages:
 
-1. Navigate to the  ```frontend``` directory.
+   ```sh
+   pip install -r requirements.txt
+   ```
 
-2. Install dependencies:
-```
-npm install
-```
+4. Set up the database:
+
+   ```sh
+   python manage.py migrate
+   ```
+
+5. Create a superuser to access the Django admin panel:
+
+   ```sh
+   python manage.py createsuperuser
+   ```
+
+6. Run the development server:
+
+   ```sh
+   python manage.py runserver
+   ```
+
+### Frontend Setup
+
+1. Navigate to the frontend directory:
+
+   ```sh
+   cd ../frontend
+   ```
+
+2. Install the required npm packages:
+
+   ```sh
+   npm install
+   ```
+
 3. Start the development server:
-```
-npm run dev
-```
 
-## Authentication Flow
-- Registration: Users can register by providing their name, email, phone, and password.
-- Login: Users can log in using their email and password or via Google OAuth.
-- Session Management: Sessions are managed using cookies and stored in MongoDB.
-- Protected Routes: Protected routes require authentication and are accessible only to logged-in users.
+   ```sh
+   npm run dev
+   ```
+
+## Usage
+
+### Accessing the Application
+
+- The backend server will be running at `http://127.0.0.1:8000/`.
+- The frontend server will be running at `http://localhost:5173/`.
+
+### Admin Panel
+
+- Access the Django admin panel at `http://127.0.0.1:8000/admin/` using the superuser credentials created during setup.
+
+### User Registration and Login
+
+- Navigate to the registration page at `http://localhost:5173/register` to create a new account.
+- Navigate to the login page at `http://localhost:5173/login` to log in to your account.
+
+## Contributing
+
+We welcome contributions to the HireMe project! To contribute, follow these steps:
+
+1. Fork the repository.
+2. Create a new branch for your feature or bugfix.
+3. Make your changes and commit them with descriptive messages.
+4. Push your changes to your fork.
+5. Create a pull request to the main repository.
+
+## License
+
+This project is licensed under the MIT License. See the LICENSE file for more details.
