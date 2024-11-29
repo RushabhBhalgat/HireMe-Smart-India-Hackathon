@@ -2,7 +2,7 @@
 
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
-import AppNavBar from "./components/AppNavBar";
+import AppNavBar from "./components/AppNavbar";
 import LandingNavbar from "./components/LandingNavbar";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
@@ -10,9 +10,10 @@ import Home from "./pages/Home";
 import ForgotPassword from "./pages/ForgotPassword";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import ResetPassword from "./pages/ResetPassword";
+import ResetPassword from "./Pages/ResetPassword";
 import Profile from "./pages/Profile";
 import { useState } from "react";
+import TeamPage from "./pages/TeamPage";
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -81,6 +82,7 @@ const App = () => {
                 <Profile isLoggedIn={isLoggedIn} name={name} email={email} />
               }
             />
+            <Route path="team" element={<TeamPage />} />
           </Routes>
         </div>
       </BrowserRouter>

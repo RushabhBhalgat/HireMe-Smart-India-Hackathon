@@ -120,7 +120,7 @@ const Navbar = () => {
               <i className="fas fa-briefcase mr-2"></i> Reports
             </a>
             <a
-              href="#"
+              href="/team"
               className="flex items-center text-gray-800 hover:text-gray-600"
             >
               <i className="fas fa-users mr-2"></i> Our Team
