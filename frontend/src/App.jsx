@@ -3,6 +3,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import AppNavBar from "./components/AppNavBar";
+import LandingNavbar from "./components/LandingNavbar";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Home from "./pages/Home";
@@ -22,14 +23,15 @@ const App = () => {
     <div className="md:h-screen bg-purple-100">
       <BrowserRouter>
         <ToastContainer />
-        <AppNavBar
+        <LandingNavbar />
+        {/* <AppNavBar
           isLoggedIn={isLoggedIn}
           setIsLoggedIn={setIsLoggedIn}
           name={name}
           setName={setName}
           email={email}
           setEmail={setEmail}
-        />
+        /> */}
         <div>
           <Routes>
             <Route

@@ -1,11 +1,15 @@
 // pages/Home.js
-
+import ImageSlider from "../components/ImageSlider";
+import Features from "../components/Features";
+import HeroSection from "../components/HeroSection";
+import FooterSection from "../components/FooterSection";
 const Home = () => {
   return (
     <div>
-      <h2 className="font-bold my-5 text-xl text-center">
-        This is simple home page. Customize as per your usecase
-      </h2>
+      <ImageSlider />
+      <HeroSection />
+      <Features />
+      <FooterSection />
     </div>
   );
 };

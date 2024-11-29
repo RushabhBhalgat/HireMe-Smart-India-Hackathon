@@ -2,7 +2,7 @@
 
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
-import AppNavBar from "./components/AppNavbar";
+import AppNavBar from "./components/AppNavBar";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Home from "./pages/Home";
