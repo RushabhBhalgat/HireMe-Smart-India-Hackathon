@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Logo from "../images/logo.png";
-
+import { Link } from "react-router-dom";
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isLanguageOpen, setIsLanguageOpen] = useState(false);
@@ -67,12 +67,16 @@ const Navbar = () => {
                 </div>
               )}
             </div>
-            <button className="bg-orange-500 hover:bg-orange-600 text-white px-3 py-2 rounded-md text-sm font-medium">
-              Register
-            </button>
-            <button className="bg-gray-700 hover:bg-gray-600 text-white px-3 py-2 rounded-md text-sm font-medium">
-              Login
-            </button>
+            <Link to="/register">
+              <button className="bg-orange-500 hover:bg-orange-600 text-white px-3 py-2 rounded-md text-sm font-medium">
+                Register
+              </button>
+            </Link>
+            <Link to="/login">
+              <button className="bg-gray-700 hover:bg-gray-600 text-white px-3 py-2 rounded-md text-sm font-medium">
+                Login
+              </button>
+            </Link>
           </div>
 
           {/* Hamburger Menu Button */}

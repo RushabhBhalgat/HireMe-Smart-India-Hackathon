@@ -89,16 +89,16 @@ const FooterSection = () => {
             <h4 className="font-bold mb-2">Follow Us</h4>
             <div className="flex space-x-4">
               <a href="https://facebook.com" target="_blank" rel="noreferrer">
-                <i class="fa-brands fa-facebook"></i>
+                <i className="fa-brands fa-facebook"></i>
               </a>
               <a href="https://linkedin.com" target="_blank" rel="noreferrer">
-                <i class="fa-brands fa-linkedin"></i>
+                <i className="fa-brands fa-linkedin"></i>
               </a>
               <a href="https://twitter.com" target="_blank" rel="noreferrer">
-                <i class="fa-brands fa-x-twitter"></i>
+                <i className="fa-brands fa-x-twitter"></i>
               </a>
               <a href="https://youtube.com" target="_blank" rel="noreferrer">
-                <i class="fa-brands fa-youtube"></i>
+                <i className="fa-brands fa-youtube"></i>
               </a>
             </div>
             <div className="mt-4">
