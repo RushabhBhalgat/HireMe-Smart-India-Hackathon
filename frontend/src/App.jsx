@@ -2,7 +2,7 @@
 
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
-import AppNavBar from "./components/AppNavbar";
+// import AppNavBar from "./components/AppNavbar";
 import LandingNavbar from "./components/LandingNavbar";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
@@ -14,6 +14,13 @@ import ResetPassword from "./Pages/ResetPassword";
 import Profile from "./pages/Profile";
 import { useState } from "react";
 import TeamPage from "./pages/TeamPage";
+
+// --------
+import CreateInterview from "./Pages/InterviewSection/CreateInterview";
+import Feedback from "./Pages/InterviewSection/Feedback";
+import Interview from "./Pages/InterviewSection/Interview";
+import InterviewDashboard from "./Pages/InterviewSection/InterviewDashboard";
+
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -75,6 +82,7 @@ const App = () => {
               path="resetPassword"
               element={<ResetPassword isLoggedIn={isLoggedIn} />}
             />
+
             <Route
               path="profile"
               exact
@@ -83,6 +91,13 @@ const App = () => {
               }
             />
             <Route path="team" element={<TeamPage />} />
+
+            {/* Direct Routes for Interview Pages */}
+            <Route path="/create-interview" element={<CreateInterview />} />
+            <Route path="/feedback" element={<Feedback />} />
+            <Route path="/interview" element={<Interview />} />
+            <Route path="/interview-dashboard" element={<InterviewDashboard />} />
+            
           </Routes>
         </div>
       </BrowserRouter>
@@ -91,3 +106,4 @@ const App = () => {
 };
 
 export default App;
+
