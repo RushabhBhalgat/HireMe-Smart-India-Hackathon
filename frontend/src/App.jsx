@@ -14,8 +14,9 @@ import ResetPassword from "./Pages/ResetPassword";
 import Profile from "./pages/Profile";
 import { useState } from "react";
 import TeamPage from "./pages/TeamPage";
-
 // --------
+import CommunityPage from "./Pages/CommunityAndPeerSupport/CommunityPage";
+
 import CreateInterview from "./Pages/InterviewSection/CreateInterview";
 import Feedback from "./Pages/InterviewSection/Feedback";
 import Interview from "./Pages/InterviewSection/Interview";
@@ -99,6 +100,13 @@ const App = () => {
               path="/interview-dashboard"
               element={<InterviewDashboard />}
             />
+            <Route
+              path="/interview-dashboard"
+              element={<InterviewDashboard />}
+            />
+
+            {/* Direct Routes for Interview Pages */}
+            <Route path="/CommunityPage" element={<CommunityPage />} />
           </Routes>
         </div>
       </BrowserRouter>
