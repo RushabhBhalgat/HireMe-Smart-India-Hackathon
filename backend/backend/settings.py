@@ -59,6 +59,7 @@ INSTALLED_APPS = [
     "api",
     "rest_framework",
     "corsheaders",
+    "technical_test",
 ]
 
 MIDDLEWARE = [
@@ -152,6 +153,9 @@ EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = "smtp.gmail.com"
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
-EMAIL_HOST_USER = "rushabhbhalgat123@gmail.com"
-EMAIL_HOST_PASSWORD = "15152533"
+EMAIL_HOST_USER = ""
+EMAIL_HOST_PASSWORD = ""
 TIME_ZONE = 'Asia/Kolkata'
+
+TEST_DEFAULT_NUM_QUESTIONS = 20  # Default 20 questions per test
+TEST_DEFAULT_TIME_LIMIT = 30  # Default 30 minutes per test

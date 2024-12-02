@@ -21,7 +21,6 @@ import Feedback from "./Pages/InterviewSection/Feedback";
 import Interview from "./Pages/InterviewSection/Interview";
 import InterviewDashboard from "./Pages/InterviewSection/InterviewDashboard";
 
-
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [name, setName] = useState("");
@@ -31,7 +30,7 @@ const App = () => {
     <div className="md:h-screen bg-purple-100">
       <BrowserRouter>
         <ToastContainer />
-        <LandingNavbar />
+
         {/* <AppNavBar
           isLoggedIn={isLoggedIn}
           setIsLoggedIn={setIsLoggedIn}
@@ -96,8 +95,10 @@ const App = () => {
             <Route path="/create-interview" element={<CreateInterview />} />
             <Route path="/feedback" element={<Feedback />} />
             <Route path="/interview" element={<Interview />} />
-            <Route path="/interview-dashboard" element={<InterviewDashboard />} />
-            
+            <Route
+              path="/interview-dashboard"
+              element={<InterviewDashboard />}
+            />
           </Routes>
         </div>
       </BrowserRouter>
@@ -106,4 +107,3 @@ const App = () => {
 };
 
 export default App;
-

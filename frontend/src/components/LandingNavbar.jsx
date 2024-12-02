@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Logo from "../images/logo.png";
 import { Link } from "react-router-dom";
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isLanguageOpen, setIsLanguageOpen] = useState(false);
@@ -12,11 +13,13 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16">
           {/* Left Side */}
           <div className="flex items-center">
-            <img
-              src={Logo}
-              alt="Government of Punjab"
-              className="h-8 w-auto mr-4"
-            />
+            <Link to="/">
+              <img
+                src={Logo}
+                alt="Government of Punjab"
+                className="h-8 w-auto mr-4"
+              />
+            </Link>
             <span className="text-gray-800 font-bold text-lg hidden md:block">
               ਪੰਜਾਬ ਸਰਕਾਰ | Government of Punjab
             </span>
