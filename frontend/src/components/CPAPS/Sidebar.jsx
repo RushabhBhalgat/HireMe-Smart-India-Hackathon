@@ -3,26 +3,25 @@ import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
 
-
-function Sidebar({ topThreads }) {
+function Sidebar({ topThreads = [] }) {
   const [selectedTopic, setSelectedTopic] = useState('all');
   const [isOpen, setIsOpen] = useState(false);
 
   // Close sidebar on larger screens
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth >= 1024) {
+      if (window.innerWidth >= 1024 && isOpen) {
         setIsOpen(false);
       }
     };
 
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
-  }, []);
+  }, [isOpen]);
 
   return (
     <>
-      /* Mobile Toggle Button */
+      {/* Mobile Toggle Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
         className={clsx(
@@ -31,15 +30,17 @@ function Sidebar({ topThreads }) {
           'transition-all duration-300 ease-in-out',
           isOpen ? 'right-[320px]' : 'right-0'
         )}
+        aria-label={isOpen ? 'Close sidebar' : 'Open sidebar'}
       >
-        {isOpen ? <FiChevronRight size={24} /> : <FiChevronLeft size={24} />}
+        {isOpen ? <FiChevronLeft size={24} /> : <FiChevronRight size={24} />}
       </button>
 
-      /* Overlay for mobile */}
+      {/* Overlay for closing sidebar on mobile */}
       {isOpen && (
         <div
           className="fixed inset-0 bg-black bg-opacity-50 z-30 lg:hidden"
           onClick={() => setIsOpen(false)}
+          aria-hidden="true"
         />
       )}
 
@@ -55,7 +56,8 @@ function Sidebar({ topThreads }) {
       >
         <div className="lg:sticky lg:top-8">
           <h2 className="text-lg font-semibold mb-4">Popular Threads</h2>
-          
+
+          {/* Topics */}
           <div className="space-y-2 mb-6">
             <button
               onClick={() => setSelectedTopic('all')}
@@ -66,7 +68,7 @@ function Sidebar({ topThreads }) {
             >
               All Topics
             </button>
-            {['Development', 'Design', 'Marketing'].map(topic => (
+            {['Development', 'Design', 'Marketing'].map((topic) => (
               <button
                 key={topic}
                 onClick={() => setSelectedTopic(topic)}
@@ -80,8 +82,9 @@ function Sidebar({ topThreads }) {
             ))}
           </div>
 
+          {/* Threads */}
           <div className="space-y-4">
-            {topThreads?.map(thread => (
+            {topThreads.map((thread) => (
               <div
                 key={thread.id}
                 className="p-3 hover:bg-gray-50 rounded-md cursor-pointer transition-colors"
@@ -107,9 +110,9 @@ Sidebar.propTypes = {
       id: PropTypes.string.isRequired,
       title: PropTypes.string.isRequired,
       likes: PropTypes.number.isRequired,
-      comments: PropTypes.number.isRequired
+      comments: PropTypes.number.isRequired,
     })
-  )
+  ),
 };
 
 export default Sidebar;
