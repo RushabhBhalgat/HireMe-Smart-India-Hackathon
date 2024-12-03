@@ -22,12 +22,12 @@ function Sidebar({ topThreads }) {
 
   return (
     <>
-      {/* Mobile Toggle Button */}
+      /* Mobile Toggle Button */
       <button
         onClick={() => setIsOpen(!isOpen)}
         className={clsx(
           'fixed top-1/2 -translate-y-1/2 z-40 lg:hidden',
-          'bg-primary-500 text-white p-3 rounded-l-lg shadow-lg',
+          'bg-black text-white p-3 rounded-l-lg shadow-lg',
           'transition-all duration-300 ease-in-out',
           isOpen ? 'right-[320px]' : 'right-0'
         )}
@@ -35,7 +35,7 @@ function Sidebar({ topThreads }) {
         {isOpen ? <FiChevronRight size={24} /> : <FiChevronLeft size={24} />}
       </button>
 
-      {/* Overlay for mobile */}
+      /* Overlay for mobile */}
       {isOpen && (
         <div
           className="fixed inset-0 bg-black bg-opacity-50 z-30 lg:hidden"
