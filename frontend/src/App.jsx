@@ -22,6 +22,7 @@ import Feedback from "./Pages/InterviewSection/Feedback";
 import Interview from "./Pages/InterviewSection/Interview";
 import InterviewDashboard from "./Pages/InterviewSection/InterviewDashboard";
 
+import Insightspage from "./Pages/IndustryInsightsPage/Insightspage";
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [name, setName] = useState("");
@@ -107,6 +108,9 @@ const App = () => {
 
             {/* Direct Routes for Interview Pages */}
             <Route path="/CommunityPage" element={<CommunityPage />} />
+
+            {/* Direct Routes for Insights */}
+            <Route path="/Insightspage" element={<Insightspage />} />
           </Routes>
         </div>
       </BrowserRouter>
