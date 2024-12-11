@@ -3,16 +3,17 @@ import SearchBar from '../../components/CPAPS/SearchBar';
 import ThreadList from '../../components/CPAPS/ThreadList';
 import Sidebar from '../../components/CPAPS/Sidebar';
 import CreateThread from '../../components/CPAPS/CreateThread';
-import { FiPlusCircle } from 'react-icons/fi';
+import { FiPlusCircle, FiMessageSquare, FiX } from 'react-icons/fi';
+import ChatResponder from '../../components/CPAPS/ChatResponder';
 
 // Mock data with comments
 const mockThreads = [
   {
     id: 1,
     title: "Best practices for React Performance",
-    content: "What are your go-to techniques for optimizing React launchlications?",
+    content: "What are your go-to techniques for optimizing React applications?",
     author: {
-      name: "Sarah Chen",
+      name: "Sameer Bagul",
       avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Sarah"
     },
     tags: ["React", "Performance", "JavaScript"],
@@ -23,7 +24,7 @@ const mockThreads = [
         id: 1,
         content: "Memoization is key for preventing unnecessary re-renders!",
         author: {
-          name: "John Doe",
+          name: "Babu raw",
           avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=John"
         },
         createdAt: "2024-02-21T08:30:00Z"
@@ -36,7 +37,7 @@ const mockThreads = [
     title: "Learning Path: From Junior to Senior Developer",
     content: "Let's discuss the essential skills and experiences needed to progress in your development career.",
     author: {
-      name: "Mike Johnson",
+      name: "Sakshi Jadhav",
       avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Mike"
     },
     tags: ["Career", "Development", "Learning"],
@@ -65,7 +66,8 @@ const topThreads = [
 function CommunityPage() {
   const [threads, setThreads] = useState(mockThreads);
   const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
-  
+  const [isChatOpen, setIsChatOpen] = useState(false);
+
   const handleSearch = (query) => {
     const filteredThreads = mockThreads.filter(thread => 
       thread.title.toLowerCase().includes(query.toLowerCase()) ||
@@ -147,6 +149,28 @@ function CommunityPage() {
           onCreateThread={handleCreateThread}
           onClose={() => setIsCreateModalOpen(false)}
         />
+      )}
+
+      {/* Floating Chatbox */}
+      <button
+        className="fixed bottom-4 right-4 bg-gray-600 text-white p-3 rounded-full shadow-lg hover:bg-gray-500 transition-colors"
+        onClick={() => setIsChatOpen(true)}
+      >
+        <FiMessageSquare size={24} />
+      </button>
+
+      {isChatOpen && (
+        <div className="fixed bottom-24 right-8 w-100 h-106 bg-white shadow-lg rounded-lg flex flex-col">
+          {/* Header */}
+          <div className="flex justify-between items-center bg-gray-600 text-white p-3 rounded-t-lg">
+            <span className="font-semibold">Chat Support</span>
+            <button onClick={() => setIsChatOpen(false)}>
+              <FiX size={20} />
+            </button>
+          </div>
+          {/* ChatResponder */}
+          <ChatResponder />
+        </div>
       )}
     </div>
   );
