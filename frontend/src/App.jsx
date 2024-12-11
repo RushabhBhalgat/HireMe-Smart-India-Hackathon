@@ -119,10 +119,6 @@ const App = () => {
               path="/interview-dashboard"
               element={<InterviewDashboard />}
             />
-            <Route
-              path="/interview-dashboard"
-              element={<InterviewDashboard />}
-            />
 
             {/* Direct Routes for Interview Pages */}
             <Route path="/CommunityPage" element={<CommunityPage />} />
