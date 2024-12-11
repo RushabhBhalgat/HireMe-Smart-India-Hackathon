@@ -37,7 +37,7 @@ import PersonalityAssessmentPage from "./Pages/PersonalityAssessmentPage";
 import TechnicalTestResultPage from "./Pages/TechnicalTestResultPage";
 
 import ChatBot from "./components/Chatbot/GeminiComponent";
-
+import PersonalizedRoadmap from "./Pages/PersonalizedRoadmap";
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [name, setName] = useState("");
@@ -140,6 +140,7 @@ const App = () => {
               element={<TechnicalTestResultPage />}
             />
             <Route path="chatbot" element={<ChatBot />} />
+            <Route path="/roadmap" element={<PersonalizedRoadmap />} />
           </Routes>
         </div>
       </BrowserRouter>
