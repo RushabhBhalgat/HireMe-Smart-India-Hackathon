@@ -4,13 +4,12 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 // import AppNavBar from "./components/AppNavbar";
 
-
 import Login from "./pages/Login";
-=======
+
 import LandingNavbar from "./components/LandingNavbar";
 
 import Register from "./pages/Register";
-import Home from "./Pages/Home";
+import Home from "./pages/Home";
 import ForgotPassword from "./pages/ForgotPassword";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -18,7 +17,7 @@ import ResetPassword from "./Pages/ResetPassword";
 import Profile from "./pages/Profile";
 import { useState } from "react";
 import TeamPage from "./pages/TeamPage";
-// --------
+
 import CommunityPage from "./Pages/CommunityAndPeerSupport/CommunityPage";
 
 import CreateInterview from "./Pages/InterviewSection/CreateInterview";
@@ -28,8 +27,7 @@ import InterviewDashboard from "./Pages/InterviewSection/InterviewDashboard";
 
 import Insightspage from "./Pages/IndustryInsightsPage/Insightspage";
 
-
-import CognitiveTestPage from "./Pages/CognitiveTest"
+import CognitiveTestPage from "./Pages/CognitiveTest";
 import SpotOn from "./Pages/CognitiveGames/SpotOn";
 import BrainSwitch from "./Pages/CognitiveGames/BrainSwitch";
 
@@ -108,7 +106,7 @@ const App = () => {
               }
             />
             <Route path="team" element={<TeamPage />} />
-            
+
             <Route path="cognitiveTest" element={<CognitiveTestPage />} />
             <Route path="spotOn" element={<SpotOn />} />
             <Route path="brainSwitch" element={<BrainSwitch />} />
