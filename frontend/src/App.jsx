@@ -3,10 +3,14 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 // import AppNavBar from "./components/AppNavbar";
+
+
+import Login from "./pages/Login";
+=======
 import LandingNavbar from "./components/LandingNavbar";
-import Login from "./Pages/Login";
+
 import Register from "./pages/Register";
-import Home from "./pages/Home";
+import Home from "./Pages/Home";
 import ForgotPassword from "./pages/ForgotPassword";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -23,10 +27,17 @@ import Interview from "./Pages/InterviewSection/Interview";
 import InterviewDashboard from "./Pages/InterviewSection/InterviewDashboard";
 
 import Insightspage from "./Pages/IndustryInsightsPage/Insightspage";
+
+
+import CognitiveTestPage from "./Pages/CognitiveTest"
+import SpotOn from "./Pages/CognitiveGames/SpotOn";
+import BrainSwitch from "./Pages/CognitiveGames/BrainSwitch";
+
 import TechnicalTestPage from "./Pages/TechnicalTestPage";
 import TechnicalTestInterface from "./Pages/TechnicalTestInterface";
 import PersonalityAssessmentPage from "./Pages/PersonalityAssessmentPage";
 import TechnicalTestResultPage from "./Pages/TechnicalTestResultPage";
+
 import ChatBot from "./components/Chatbot/GeminiComponent";
 
 const App = () => {
@@ -38,7 +49,6 @@ const App = () => {
     <div className="md:h-screen bg-purple-100">
       <BrowserRouter>
         <ToastContainer />
-
         {/* <AppNavBar
           isLoggedIn={isLoggedIn}
           setIsLoggedIn={setIsLoggedIn}
@@ -98,6 +108,10 @@ const App = () => {
               }
             />
             <Route path="team" element={<TeamPage />} />
+            
+            <Route path="cognitiveTest" element={<CognitiveTestPage />} />
+            <Route path="spotOn" element={<SpotOn />} />
+            <Route path="brainSwitch" element={<BrainSwitch />} />
 
             {/* Direct Routes for Interview Pages */}
             <Route path="/create-interview" element={<CreateInterview />} />

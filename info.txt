@@ -1,0 +1,17 @@
+Welcome to our Skills Development Platform!
+
+Enhance your skills and prepare for your career with our comprehensive tools and resources. Our user-friendly dashboard offers easy access to:
+
+- **Resume Wizard**: Create professional resumes.
+- **Mock Interview**: Improve interview skills.
+- **Cognitive Test**: Enhance cognitive abilities.
+- **Technical Test**: Test and improve various skills.
+- **Job Recommendation**: Get personalized job suggestions.
+- **Roadmap**: Plan your learning journey.
+- **Self Learning Section**: Access learning materials at your pace.
+- **Community and Peer Support**: Connect with peers.
+- **Skill Verification and Certification**: Earn certifications.
+
+Navigate easily with our collapsible sidebar and manage your profile at the bottom. Experience a professional UI with icons and infographics, simulated with dummy data for a realistic preview.
+
+Join us and advance your career with our all-in-one platform!
