@@ -6,7 +6,7 @@ import "./App.css";
 
 import Login from "./pages/Login";
 import Register from "./pages/Register";
-import Home from "./pages/Home";
+import Home from "./Pages/Home";
 import ForgotPassword from "./pages/ForgotPassword";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -14,13 +14,6 @@ import ResetPassword from "./Pages/ResetPassword";
 import Profile from "./pages/Profile";
 import { useState } from "react";
 import TeamPage from "./pages/TeamPage";
-<<<<<<< Updated upstream
-=======
-
-//-------
-import CognitiveTestPage from "./Pages/CognitiveTest";
-import SpotOn from "./Pages/CognitiveGames/SpotOn"
->>>>>>> Stashed changes
 // --------
 import CommunityPage from "./Pages/CommunityAndPeerSupport/CommunityPage";
 
@@ -30,6 +23,11 @@ import Interview from "./Pages/InterviewSection/Interview";
 import InterviewDashboard from "./Pages/InterviewSection/InterviewDashboard";
 
 import Insightspage from "./Pages/IndustryInsightsPage/Insightspage";
+
+//---cognitive
+import CognitiveTestPage from "./Pages/CognitiveTest"
+import SpotOn from "./Pages/CognitiveGames/SpotOn";
+import BrainSwitch from "./Pages/CognitiveGames/BrainSwitch";
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [name, setName] = useState("");
@@ -39,10 +37,6 @@ const App = () => {
     <div className="md:h-screen bg-purple-100">
       <BrowserRouter>
         <ToastContainer />
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
         {/* <AppNavBar
           isLoggedIn={isLoggedIn}
           setIsLoggedIn={setIsLoggedIn}
@@ -105,6 +99,8 @@ const App = () => {
             
             <Route path="cognitiveTest" element={<CognitiveTestPage />} />
             <Route path="spotOn" element={<SpotOn />} />
+            <Route path="brainSwitch" element={<BrainSwitch />} />
+
             {/* Direct Routes for Interview Pages */}
             <Route path="/create-interview" element={<CreateInterview />} />
             <Route path="/feedback" element={<Feedback />} />

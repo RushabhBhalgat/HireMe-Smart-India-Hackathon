@@ -54,13 +54,14 @@ import q7option4 from "../../images/cognitive_games/SpotOn/q7option4.png";
 const SpotOn = () => {
   const [score, setScore] = useState(0);
   const [timer, setTimer] = useState(10); // Timer in seconds
-  const [progress, setProgress] = useState(0); // Progress bar
+  const [progress, setProgress] = useState(100); // Progress bar
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [timeTaken, setTimeTaken] = useState([]);
   const [isGameOver, setIsGameOver] = useState(false);
   const [isReady, setIsReady] = useState(false); // Readiness state
-  const [isWebcamAllowed, setIsWebcamAllowed] = useState(false);
+  const [isWebcamAllowed, setIsWebcamAllowed] = useState(false); // Webcam state
   const [capturedImage, setCapturedImage] = useState(null);
+  const [isInstructionsVisible, setIsInstructionsVisible] = useState(false); // New state for instructions screen
   const timerRef = useRef();
   const webcamRef = useRef(null);
 
@@ -104,7 +105,7 @@ const SpotOn = () => {
 
   // Timer logic with progress bar
   const startTimer = () => {
-    setTimer(10);
+    setTimer(6);
     setProgress(100);
     timerRef.current = setInterval(() => {
       setTimer((prevTimer) => {
@@ -130,6 +131,10 @@ const SpotOn = () => {
     }
     setIsReady(true);
     startTimer();
+  };
+
+  const showInstructions = () => {
+    setIsInstructionsVisible(true);
   };
 
   // Capture image from webcam
@@ -199,7 +204,7 @@ const SpotOn = () => {
                 >
                   Capture Aadhaar Card
                 </button>
-                {capturedImage && (
+                {capturedImage && ( 
                   <div className="mt-4">
                     <p className="text-sm mb-2">Captured Image:</p>
                     <img
@@ -233,7 +238,6 @@ const SpotOn = () => {
         <div className="modal bg-white p-6 rounded-lg shadow-lg max-w-md w-full text-center">
           <h2 className="text-3xl font-semibold mb-4">Game Over</h2>
           <p className="text-xl mb-2">Final Score: {score} / 10</p>
-          <p className="text-lg">Time taken for each question: {timeTaken.join(", ")} seconds</p>
           <button
             onClick={() => window.location.reload()}
             className="mt-6 px-6 py-2 text-white bg-purple-600 rounded hover:bg-purple-700"
@@ -243,6 +247,20 @@ const SpotOn = () => {
         </div>
       ) : (
         <div className="flex flex-col items-center">
+          <div className="w-96 h-4 bg-gray-300 rounded mb-4 relative">
+            <div
+              style={{
+                width: `${progress}%`,
+                backgroundColor:
+                  progress > 66
+                    ? "#40CE83" // Green
+                    : progress > 33
+                    ? "#F7CF40" // Yellow
+                    : "#F74A40", // Red
+              }}
+              className="h-full rounded progress-bar"
+            ></div>
+          </div>
           <div className="relative w-96 h-96 mb-6">
             <img
               src={questions[currentQuestion].target}
@@ -250,12 +268,7 @@ const SpotOn = () => {
               className="object-contain w-full h-full"
             />
           </div>
-          <div className="w-96 h-4 bg-gray-300 rounded mb-4 relative">
-            <div
-              style={{ width: `${progress}%` }}
-              className="h-full bg-blue-600 rounded"
-            ></div>
-          </div>
+          
           <div className="grid grid-cols-2 gap-4 mt-8">
             {questions[currentQuestion].options.map((option, index) => (
               <button
