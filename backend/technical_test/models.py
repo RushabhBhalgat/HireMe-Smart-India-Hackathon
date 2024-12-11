@@ -30,10 +30,6 @@ class TestSession(models.Model):
     def __str__(self):
         return f"Test for {self.user.username} on {self.skill}"
 
-
-
-    def __str__(self):
-        return f"Test for {self.user.name} on {self.skill}"
     
 class TestSettings(models.Model):
     num_questions = models.IntegerField(default=20)  # Default 20 questions per test
