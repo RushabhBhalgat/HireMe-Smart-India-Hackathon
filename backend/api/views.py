@@ -159,20 +159,21 @@ class RegistrationView(APIView):
 
 
 class LoginView(APIView):
-    def post(self, request):
-        email = request.data.get("email")
-        password = request.data.get("password")
-        user = authenticate(email=email, password=password)
-        if user:
-            refresh = RefreshToken.for_user(user)
-            return Response({
-                'refresh': str(refresh),
-                'access': str(refresh.access_token),
-            })
-        return Response({'error': 'Invalid credentials'}, status=400)
-        
-class UserView(RetrieveAPIView):
-    queryset = User.objects.all()
-    serializer_class = UserSerializer
-    permission_classes = [IsAuthenticated]
-
+    def post(self, request, format=None):
+        email = request.data["email"]
+        password = request.data["password"]
+        hashed_password = make_password(password=password, salt=SALT)
+        user = User.objects.get(email=email)
+        if user is None or user.password != hashed_password:
+            return Response(
+                {
+                    "success": False,
+                    "message": "Invalid Login Credentials!",
+                },
+                status=status.HTTP_200_OK,
+            )
+        else:
+            return Response(
+                {"success": True, "message": "You are now logged in!"},
+                status=status.HTTP_200_OK,
+            )

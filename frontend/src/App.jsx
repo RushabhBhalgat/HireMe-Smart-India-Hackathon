@@ -27,6 +27,8 @@ import TechnicalTestPage from "./Pages/TechnicalTestPage";
 import TechnicalTestInterface from "./Pages/TechnicalTestInterface";
 import PersonalityAssessmentPage from "./Pages/PersonalityAssessmentPage";
 import TechnicalTestResultPage from "./Pages/TechnicalTestResultPage";
+import ChatBot from "./components/Chatbot/GeminiComponent";
+
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [name, setName] = useState("");
@@ -129,6 +131,7 @@ const App = () => {
               path="technical-test-result"
               element={<TechnicalTestResultPage />}
             />
+            <Route path="chatbot" element={<ChatBot />} />
           </Routes>
         </div>
       </BrowserRouter>
