@@ -2,7 +2,6 @@
 
 from django.shortcuts import render
 from django.contrib.auth.hashers import make_password
-from django.contrib.auth import authenticate
 from django.core.mail import send_mail
 from rest_framework import status
 from rest_framework.response import Response
@@ -15,13 +14,6 @@ from datetime import datetime, timedelta
 import hashlib
 import uuid
 from django.utils import timezone
-from rest_framework.generics import RetrieveAPIView
-from rest_framework.permissions import IsAuthenticated
-from rest_framework_simplejwt.tokens import RefreshToken
-from rest_framework.response import Response
-from rest_framework.views import APIView
-
-
 
 SALT = "8b4f6b2cc1868d75ef79e5cfb8779c11b6a374bf0fce05b485581bf4e1e25b96c8c2855015de8449"
 URL = "http://localhost:3000"
