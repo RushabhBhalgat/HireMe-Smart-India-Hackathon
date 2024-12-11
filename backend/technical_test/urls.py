@@ -1,7 +1,8 @@
 from django.urls import path
 from .views import StartTestAPIView, SubmitTestAPIView
+import views
 
 urlpatterns = [
-    path("start-test/", StartTestAPIView.as_view(), name="start-test"),
-    path("submit-test/", SubmitTestAPIView.as_view(), name="submit-test"),
+    path('questions/CNC Programmer/', views.QuestionView.as_view(), name='questions'),
+
 ]

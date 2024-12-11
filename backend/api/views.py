@@ -2,6 +2,7 @@
 
 from django.shortcuts import render
 from django.contrib.auth.hashers import make_password
+from django.contrib.auth import authenticate
 from django.core.mail import send_mail
 from rest_framework import status
 from rest_framework.response import Response
@@ -14,6 +15,13 @@ from datetime import datetime, timedelta
 import hashlib
 import uuid
 from django.utils import timezone
+from rest_framework.generics import RetrieveAPIView
+from rest_framework.permissions import IsAuthenticated
+from rest_framework_simplejwt.tokens import RefreshToken
+from rest_framework.response import Response
+from rest_framework.views import APIView
+
+
 
 SALT = "8b4f6b2cc1868d75ef79e5cfb8779c11b6a374bf0fce05b485581bf4e1e25b96c8c2855015de8449"
 URL = "http://localhost:3000"
@@ -159,21 +167,20 @@ class RegistrationView(APIView):
 
 
 class LoginView(APIView):
-    def post(self, request, format=None):
-        email = request.data["email"]
-        password = request.data["password"]
-        hashed_password = make_password(password=password, salt=SALT)
-        user = User.objects.get(email=email)
-        if user is None or user.password != hashed_password:
-            return Response(
-                {
-                    "success": False,
-                    "message": "Invalid Login Credentials!",
-                },
-                status=status.HTTP_200_OK,
-            )
-        else:
-            return Response(
-                {"success": True, "message": "You are now logged in!"},
-                status=status.HTTP_200_OK,
-            )
+    def post(self, request):
+        email = request.data.get("email")
+        password = request.data.get("password")
+        user = authenticate(email=email, password=password)
+        if user:
+            refresh = RefreshToken.for_user(user)
+            return Response({
+                'refresh': str(refresh),
+                'access': str(refresh.access_token),
+            })
+        return Response({'error': 'Invalid credentials'}, status=400)
+        
+class UserView(RetrieveAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+    permission_classes = [IsAuthenticated]
+

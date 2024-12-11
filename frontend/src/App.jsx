@@ -4,7 +4,11 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 // import AppNavBar from "./components/AppNavbar";
 
+
 import Login from "./pages/Login";
+=======
+import LandingNavbar from "./components/LandingNavbar";
+
 import Register from "./pages/Register";
 import Home from "./Pages/Home";
 import ForgotPassword from "./pages/ForgotPassword";
@@ -24,10 +28,16 @@ import InterviewDashboard from "./Pages/InterviewSection/InterviewDashboard";
 
 import Insightspage from "./Pages/IndustryInsightsPage/Insightspage";
 
-//---cognitive
+
 import CognitiveTestPage from "./Pages/CognitiveTest"
 import SpotOn from "./Pages/CognitiveGames/SpotOn";
 import BrainSwitch from "./Pages/CognitiveGames/BrainSwitch";
+
+import TechnicalTestPage from "./Pages/TechnicalTestPage";
+import TechnicalTestInterface from "./Pages/TechnicalTestInterface";
+import PersonalityAssessmentPage from "./Pages/PersonalityAssessmentPage";
+import TechnicalTestResultPage from "./Pages/TechnicalTestResultPage";
+
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [name, setName] = useState("");
@@ -119,6 +129,20 @@ const App = () => {
 
             {/* Direct Routes for Insights */}
             <Route path="/Insightspage" element={<Insightspage />} />
+
+            <Route path="/technical-test" element={<TechnicalTestPage />} />
+            <Route
+              path="/attempt-tech-test"
+              element={<TechnicalTestInterface />}
+            />
+            <Route
+              path="personality-assessment"
+              element={<PersonalityAssessmentPage />}
+            />
+            <Route
+              path="technical-test-result"
+              element={<TechnicalTestResultPage />}
+            />
           </Routes>
         </div>
       </BrowserRouter>

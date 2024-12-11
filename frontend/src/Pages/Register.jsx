@@ -19,11 +19,11 @@ const Register = (props) => {
   const [selectedSkills, setSelectedSkills] = useState([]);
 
   const skillOptions = {
-    "Aerospace and Aviation": [
-      "Aircraft Maintenance",
-      "Avionics",
-      "Flight Operations",
-      "Aerodynamics",
+    "Mechanical engineering": [
+      "CNC programmer",
+      "CAD programs",
+      "HVAC",
+      "Technical Drawing",
     ],
     Agriculture: [
       "Crop Management",
