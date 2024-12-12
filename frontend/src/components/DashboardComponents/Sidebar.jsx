@@ -8,6 +8,10 @@ import {
   LuMessageSquare,
   LuCalendar,
   LuMenu,
+  LuTrendingUp, // For Skill Insights
+  LuGlobe, // For Market Insights
+  LuFileText,
+  LuSmile,
 } from "react-icons/lu";
 import { FaSuitcase } from "react-icons/fa";
 import { TbUsers } from "react-icons/tb";
@@ -73,12 +77,12 @@ const Sidebar = ({ isSidebarCollapsed, toggleSidebar }) => {
       id: 5,
       path: "/personality-assessment",
       name: "Personality Assessment",
-      icon: FaSuitcase,
+      icon: LuSmile,
       activeIcon: (active) =>
         active ? (
-          <FaSuitcase fill="currentColor" className="text-customDarkBlue" />
+          <LuSmile fill="currentColor" className="text-customDarkBlue" />
         ) : (
-          <FaSuitcase />
+          <LuSmile />
         ),
     },
     {
@@ -91,6 +95,42 @@ const Sidebar = ({ isSidebarCollapsed, toggleSidebar }) => {
           <LuUser fill="currentColor" className="text-customDarkBlue" />
         ) : (
           <LuUser />
+        ),
+    },
+    {
+      id: 7,
+      path: "/dashboard",
+      name: "Skill Insights",
+      icon: LuTrendingUp,
+      activeIcon: (active) =>
+        active ? (
+          <LuTrendingUp fill="currentColor" className="text-customDarkBlue" />
+        ) : (
+          <LuTrendingUp />
+        ),
+    },
+    {
+      id: 8,
+      path: "/dashboard",
+      name: "Market Insights",
+      icon: LuGlobe,
+      activeIcon: (active) =>
+        active ? (
+          <LuGlobe fill="currentColor" className="text-customDarkBlue" />
+        ) : (
+          <LuGlobe />
+        ),
+    },
+    {
+      id: 9,
+      path: "/dashboard",
+      name: "Resume",
+      icon: LuFileText,
+      activeIcon: (active) =>
+        active ? (
+          <LuFileText fill="currentColor" className="text-customDarkBlue" />
+        ) : (
+          <LuFileText />
         ),
     },
   ];
@@ -159,7 +199,7 @@ const Sidebar = ({ isSidebarCollapsed, toggleSidebar }) => {
 
       {/* Community Page Link */}
       <div className="w-full absolute bottom-5 left-0 px-4 py-2 cursor-pointer text-center">
-        <a href="http://localhost:5174/communitypage">
+        <a href="http://localhost:5173/communitypage">
           <p
             className={`flex items-center space-x-2 text-xs text-white py-2 px-5 bg-gradient-to-r from-indigo-500 to-violet-600 rounded-full
               ${
