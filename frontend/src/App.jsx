@@ -38,13 +38,17 @@ import TechnicalTestResultPage from "./Pages/TechnicalTestResultPage";
 
 import ChatBot from "./components/Chatbot/GeminiComponent";
 
+import DashboardLayout from "./components/DashboardComponents/DashboardLayout";
+import DashboardHome from "./Pages/Dashboard/DashboardHome";
+import { Calendar } from "lucide-react";
+
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
 
   return (
-    <div className="md:h-screen bg-purple-100">
+    <div className="md:h-screen bg-purple-200 overflow-y-auto">
       <BrowserRouter>
         <ToastContainer />
         {/* <AppNavBar
@@ -144,6 +148,11 @@ const App = () => {
               element={<TechnicalTestResultPage />}
             />
             <Route path="chatbot" element={<ChatBot />} />
+            {/* Routes for Dashboard Pages */}
+            <Route path="/dashboard" element={<DashboardLayout />}>
+              <Route index element={<DashboardHome />} />
+            </Route>
+            <Route path="/calendar" element={<Calendar />}></Route>
           </Routes>
         </div>
       </BrowserRouter>
