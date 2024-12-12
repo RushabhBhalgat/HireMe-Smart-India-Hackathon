@@ -1,5 +1,6 @@
 // App.js
-
+import { HelmetProvider, Helmet } from "react-helmet-async";
+import { useEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 // import AppNavBar from "./components/AppNavbar";
@@ -43,11 +44,27 @@ const App = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
 
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://cdn.weglot.com/weglot.min.js";
+    script.async = true;
+
+    script.onload = () => {
+      window.Weglot.initialize({
+        api_key: "wg_6ea76958451d5fa37369ad260422b3498",
+      });
+    };
+
+    document.head.appendChild(script);
+    return () => document.head.removeChild(script);
+  }, []);
+
   return (
-    <div className="md:h-screen bg-purple-100">
-      <BrowserRouter>
-        <ToastContainer />
-        {/* <AppNavBar
+    <>
+      <div className="md:h-screen bg-purple-100">
+        <BrowserRouter>
+          <ToastContainer />
+          {/* <AppNavBar
           isLoggedIn={isLoggedIn}
           setIsLoggedIn={setIsLoggedIn}
           name={name}
@@ -55,96 +72,97 @@ const App = () => {
           email={email}
           setEmail={setEmail}
         /> */}
-        <div>
-          <Routes>
-            <Route
-              path="/"
-              exact
-              element={
-                <Home isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
-              }
-            />
-            <Route
-              path="register"
-              exact
-              element={
-                <Register
-                  isLoggedIn={isLoggedIn}
-                  setIsLoggedIn={setIsLoggedIn}
-                  setName={setName}
-                  setEmail={setEmail}
-                />
-              }
-            />
-            <Route
-              path="login"
-              exact
-              element={
-                <Login
-                  isLoggedIn={isLoggedIn}
-                  setIsLoggedIn={setIsLoggedIn}
-                  setName={setName}
-                  setEmail={setEmail}
-                />
-              }
-            />
-            <Route
-              path="forgotPassword"
-              exact
-              element={<ForgotPassword isLoggedIn={isLoggedIn} />}
-            />
-            <Route
-              path="resetPassword"
-              element={<ResetPassword isLoggedIn={isLoggedIn} />}
-            />
+          <div>
+            <Routes>
+              <Route
+                path="/"
+                exact
+                element={
+                  <Home isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+                }
+              />
+              <Route
+                path="register"
+                exact
+                element={
+                  <Register
+                    isLoggedIn={isLoggedIn}
+                    setIsLoggedIn={setIsLoggedIn}
+                    setName={setName}
+                    setEmail={setEmail}
+                  />
+                }
+              />
+              <Route
+                path="login"
+                exact
+                element={
+                  <Login
+                    isLoggedIn={isLoggedIn}
+                    setIsLoggedIn={setIsLoggedIn}
+                    setName={setName}
+                    setEmail={setEmail}
+                  />
+                }
+              />
+              <Route
+                path="forgotPassword"
+                exact
+                element={<ForgotPassword isLoggedIn={isLoggedIn} />}
+              />
+              <Route
+                path="resetPassword"
+                element={<ResetPassword isLoggedIn={isLoggedIn} />}
+              />
 
-            <Route
-              path="profile"
-              exact
-              element={
-                <Profile isLoggedIn={isLoggedIn} name={name} email={email} />
-              }
-            />
-            <Route path="team" element={<TeamPage />} />
+              <Route
+                path="profile"
+                exact
+                element={
+                  <Profile isLoggedIn={isLoggedIn} name={name} email={email} />
+                }
+              />
+              <Route path="team" element={<TeamPage />} />
 
-            <Route path="cognitiveTest" element={<CognitiveTestPage />} />
-            <Route path="spotOn" element={<SpotOn />} />
-            <Route path="brainSwitch" element={<BrainSwitch />} />
+              <Route path="cognitiveTest" element={<CognitiveTestPage />} />
+              <Route path="spotOn" element={<SpotOn />} />
+              <Route path="brainSwitch" element={<BrainSwitch />} />
 
-            {/* Direct Routes for Interview Pages */}
-            <Route path="/create-interview" element={<CreateInterview />} />
-            <Route path="/feedback" element={<Feedback />} />
-            <Route path="/interview" element={<Interview />} />
-            <Route
-              path="/interview-dashboard"
-              element={<InterviewDashboard />}
-            />
+              {/* Direct Routes for Interview Pages */}
+              <Route path="/create-interview" element={<CreateInterview />} />
+              <Route path="/feedback" element={<Feedback />} />
+              <Route path="/interview" element={<Interview />} />
+              <Route
+                path="/interview-dashboard"
+                element={<InterviewDashboard />}
+              />
 
-            {/* Direct Routes for Interview Pages */}
-            <Route path="/CommunityPage" element={<CommunityPage />} />
+              {/* Direct Routes for Interview Pages */}
+              <Route path="/CommunityPage" element={<CommunityPage />} />
 
-            {/* Direct Routes for Insights */}
-            <Route path="/Insightspage" element={<Insightspage />} />
+              {/* Direct Routes for Insights */}
+              <Route path="/Insightspage" element={<Insightspage />} />
 
-            <Route path="/technical-test" element={<TechnicalTestPage />} />
-            <Route
-              path="/attempt-tech-test"
-              element={<TechnicalTestInterface />}
-            />
-            <Route
-              path="personality-assessment"
-              element={<PersonalityAssessmentPage />}
-            />
-            <Route
-              path="technical-test-result"
-              element={<TechnicalTestResultPage />}
-            />
-            <Route path="chatbot" element={<ChatBot />} />
-            <Route path="/roadmap" element={<PersonalizedRoadmap />} />
-          </Routes>
-        </div>
-      </BrowserRouter>
-    </div>
+              <Route path="/technical-test" element={<TechnicalTestPage />} />
+              <Route
+                path="/attempt-tech-test"
+                element={<TechnicalTestInterface />}
+              />
+              <Route
+                path="personality-assessment"
+                element={<PersonalityAssessmentPage />}
+              />
+              <Route
+                path="technical-test-result"
+                element={<TechnicalTestResultPage />}
+              />
+              <Route path="chatbot" element={<ChatBot />} />
+              <Route path="/roadmap" element={<PersonalizedRoadmap />} />
+            </Routes>
+          </div>
+        </BrowserRouter>
+      </div>
+    </>
   );
 };
 

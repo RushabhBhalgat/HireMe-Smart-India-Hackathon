@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { PieChart, Pie, Cell } from "recharts";
 import { jsPDF } from "jspdf";
 import "jspdf-autotable";
-
+import CertificateGenerator from "../components/CertificateGenerator";
 const ResultsPage = () => {
   const [results, setResults] = useState(null);
   const [error, setError] = useState(null);
@@ -102,12 +102,6 @@ const ResultsPage = () => {
 
   return (
     <div className="min-h-screen bg-gray-50 p-8">
-      <button
-        onClick={() => navigate("/roadmap")}
-        className="mt-4 w-full px-6 py-3 bg-green-500 text-white rounded-lg hover:bg-green-600"
-      >
-        View Personalized Learning Roadmap
-      </button>
       <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-lg p-6">
         <h1 className="text-2xl font-bold mb-6 text-center">Exam Results</h1>
 
@@ -216,6 +210,13 @@ const ResultsPage = () => {
         >
           Download Detailed Report (PDF)
         </button>
+        <button
+          onClick={() => navigate("/roadmap")}
+          className="mt-4 w-full px-6 py-3 bg-green-500 text-white rounded-lg hover:bg-green-600"
+        >
+          View Personalized Learning Roadmap
+        </button>
+        <CertificateGenerator />
       </div>
     </div>
   );
