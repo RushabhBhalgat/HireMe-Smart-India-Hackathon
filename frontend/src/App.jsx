@@ -27,7 +27,7 @@ import Interview from "./Pages/InterviewSection/Interview";
 import InterviewDashboard from "./Pages/InterviewSection/InterviewDashboard";
 
 import Insightspage from "./Pages/IndustryInsightsPage/Insightspage";
-
+import RealTimeJobs from "./Pages/Jobs/RealTimeJobs";
 import CognitiveTestPage from "./Pages/CognitiveTest";
 import SpotOn from "./Pages/CognitiveGames/SpotOn";
 import BrainSwitch from "./Pages/CognitiveGames/BrainSwitch";
@@ -146,6 +146,7 @@ const App = () => {
 
               {/* Direct Routes for Insights */}
               <Route path="/Insightspage" element={<Insightspage />} />
+              <Route path="/RealTimeJobs" element={<RealTimeJobs />} />
 
               <Route path="/technical-test" element={<TechnicalTestPage />} />
               <Route
