@@ -147,25 +147,28 @@ const App = () => {
               {/* Direct Routes for Insights */}
               <Route path="/Insightspage" element={<Insightspage />} />
 
-            <Route path="/technical-test" element={<TechnicalTestPage />} />
-            <Route
-              path="/attempt-tech-test"
-              element={<TechnicalTestInterface />}
-            />
-            <Route
-              path="personality-assessment"
-              element={<PersonalityAssessmentPage />}
-            />
-            <Route
-              path="technical-test-result"
-              element={<TechnicalTestResultPage />}
-            />
-            <Route path="chatbot" element={<ChatBot />} />
-            <Route path="/roadmap" element={<PersonalizedRoadmap />} />
-          </Routes>
-        </div>
-      </BrowserRouter>
-    </div>
+              <Route path="/technical-test" element={<TechnicalTestPage />} />
+              <Route
+                path="/attempt-tech-test"
+                element={<TechnicalTestInterface />}
+              />
+              <Route
+                path="personality-assessment"
+                element={<PersonalityAssessmentPage />}
+              />
+              <Route
+                path="technical-test-result"
+                element={<TechnicalTestResultPage />}
+              />
+              <Route path="chatbot" element={<ChatBot />} />
+              <Route path="/roadmap" element={<PersonalizedRoadmap />} />
+              <Route path="/dashboard" element={<DashboardLayout />}>
+                <Route index element={<DashboardHome />} />
+              </Route>
+            </Routes>
+          </div>
+        </BrowserRouter>
+      </div>
     </>
   );
 };
