@@ -40,7 +40,8 @@ const ProjectCard = ({ project }) => {
           /> */}
         </div>
         <p className="flex space-x-1 items-center text-gray-400">
-          <TiAttachment /> <span>{project.files}%</span>
+          <TiAttachment />{" "}
+          <span>You are aheadd of {project.files}% candidates</span>
         </p>
       </div>
     </div>

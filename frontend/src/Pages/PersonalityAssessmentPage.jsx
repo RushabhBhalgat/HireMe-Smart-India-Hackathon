@@ -144,9 +144,7 @@ const WorkplacePersonalityTest = () => {
       <Card className="p-6 overflow-hidden">
         {!showResults ? (
           <>
-            <h2 className="text-2xl font-bold mb-6">
-              Workplace Personality Assessment
-            </h2>
+            <h2 className="text-2xl font-bold mb-6">Psychometric Test</h2>
             <div className="mb-8 relative">
               <AnimatePresence initial={false} custom={direction}>
                 <motion.div

@@ -1,14 +1,10 @@
-// App.js
 import { HelmetProvider, Helmet } from "react-helmet-async";
 import { useEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
-// import AppNavBar from "./components/AppNavbar";
 
 import Login from "./pages/Login";
-
 import LandingNavbar from "./components/LandingNavbar";
-
 import Register from "./pages/Register";
 import Home from "./pages/Home";
 import ForgotPassword from "./pages/ForgotPassword";
@@ -41,7 +37,6 @@ import ChatBot from "./components/Chatbot/GeminiComponent";
 import PersonalizedRoadmap from "./Pages/PersonalizedRoadmap";
 import DashboardLayout from "./components/DashboardComponents/DashboardLayout";
 import DashboardHome from "./Pages/Dashboard/DashboardHome";
-import { Calendar } from "lucide-react";
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -68,14 +63,6 @@ const App = () => {
       <div className="md:h-screen bg-purple-200 overflow-y-auto">
         <BrowserRouter>
           <ToastContainer />
-          {/* <AppNavBar
-          isLoggedIn={isLoggedIn}
-          setIsLoggedIn={setIsLoggedIn}
-          name={name}
-          setName={setName}
-          email={email}
-          setEmail={setEmail}
-        /> */}
           <div>
             <Routes>
               <Route
@@ -126,46 +113,48 @@ const App = () => {
                   <Profile isLoggedIn={isLoggedIn} name={name} email={email} />
                 }
               />
-              <Route path="team" element={<TeamPage />} />
 
-              <Route path="cognitiveTest" element={<CognitiveTestPage />} />
+              {/* Wrap dashboard-related routes with DashboardLayout */}
+              <Route path="/" element={<DashboardLayout />}>
+                <Route path="dashboard" element={<DashboardHome />} />
+                <Route path="technical-test" element={<TechnicalTestPage />} />
+                <Route path="roadmap" element={<PersonalizedRoadmap />} />
+                <Route path="cognitiveTest" element={<CognitiveTestPage />} />
+                <Route
+                  path="personality-assessment"
+                  element={<PersonalityAssessmentPage />}
+                />
+                <Route path="interview" element={<Interview />} />
+              </Route>
+
+              {/* Keep other routes outside of DashboardLayout */}
+              <Route path="team" element={<TeamPage />} />
               <Route path="spotOn" element={<SpotOn />} />
               <Route path="brainSwitch" element={<BrainSwitch />} />
 
               {/* Direct Routes for Interview Pages */}
               <Route path="/create-interview" element={<CreateInterview />} />
               <Route path="/feedback" element={<Feedback />} />
-              <Route path="/interview" element={<Interview />} />
               <Route
                 path="/interview-dashboard"
                 element={<InterviewDashboard />}
               />
 
-              {/* Direct Routes for Interview Pages */}
               <Route path="/CommunityPage" element={<CommunityPage />} />
 
               {/* Direct Routes for Insights */}
               <Route path="/Insightspage" element={<Insightspage />} />
               <Route path="/RealTimeJobs" element={<RealTimeJobs />} />
 
-              <Route path="/technical-test" element={<TechnicalTestPage />} />
               <Route
                 path="/attempt-tech-test"
                 element={<TechnicalTestInterface />}
-              />
-              <Route
-                path="personality-assessment"
-                element={<PersonalityAssessmentPage />}
               />
               <Route
                 path="technical-test-result"
                 element={<TechnicalTestResultPage />}
               />
               <Route path="chatbot" element={<ChatBot />} />
-              <Route path="/roadmap" element={<PersonalizedRoadmap />} />
-              <Route path="/dashboard" element={<DashboardLayout />}>
-                <Route index element={<DashboardHome />} />
-              </Route>
             </Routes>
           </div>
         </BrowserRouter>

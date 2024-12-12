@@ -65,7 +65,7 @@ const ImprovementChart = ({ data }) => {
               stroke="#3b82f6"
               strokeWidth={3}
               activeDot={{ r: 8 }}
-              name="Score"
+              name="Technical Competency"
             />
             <Line
               type="monotone"
@@ -73,7 +73,7 @@ const ImprovementChart = ({ data }) => {
               stroke="#10b981"
               strokeWidth={3}
               activeDot={{ r: 8 }}
-              name="Efficiency"
+              name="Cognitive Efficiency"
             />
           </LineChart>
         </ResponsiveContainer>

@@ -69,7 +69,7 @@ function GeminiComponent() {
             className="block"
           >
             <h1 className="text-4xl font-bold text-blue-500 hover:text-blue-600 transition-colors">
-              Chat AI
+              HireMe Introduces, AI based chatbot mentor! 🤖
             </h1>
           </a>
         </header>
@@ -91,14 +91,15 @@ function GeminiComponent() {
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-left">
                   <div className="bg-white p-4 rounded-lg shadow-sm">
-                    <span className="text-blue-500">💡</span> General knowledge
+                    <span className="text-blue-500">💡</span> Help me improve my
+                    score
                   </div>
                   <div className="bg-white p-4 rounded-lg shadow-sm">
-                    <span className="text-blue-500">🔧</span> Technical
-                    questions
+                    <span className="text-blue-500">🔧</span> Explain me the
+                    concept of
                   </div>
                   <div className="bg-white p-4 rounded-lg shadow-sm">
-                    <span className="text-blue-500">📝</span> Writing assistance
+                    <span className="text-blue-500">📝</span> Interview Tips
                   </div>
                   <div className="bg-white p-4 rounded-lg shadow-sm">
                     <span className="text-blue-500">🤔</span> Problem solving
