@@ -70,7 +70,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-        'corsheaders.middleware.CorsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
 ]
 
@@ -148,6 +148,7 @@ STATIC_URL = "static/"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5174",
+    "http://localhost:5173",
 ]
 CORS_ALLOW_CREDENTIALS = True
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
@@ -160,3 +161,11 @@ TIME_ZONE = 'Asia/Kolkata'
 
 TEST_DEFAULT_NUM_QUESTIONS = 20  # Default 20 questions per test
 TEST_DEFAULT_TIME_LIMIT = 30  # Default 30 minutes per test
+
+JAZZMIN_SETTINGS = {
+    "site_title": "HireMe Admin",
+    "site_header": "HireMe",
+    "site_brand": "HireMe",
+    "welcome_sign": "Welcome to the admin dashboard",
+    "copyright": "Team Hexageeks",
+}

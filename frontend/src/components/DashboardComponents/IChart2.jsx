@@ -19,11 +19,13 @@ const IChart2 = () => {
         color: "#FF6F61", // Red color for this test
       },
     ],
+
     chart: {
       height: "500px", // Height of the chart
       width: "100%", // Increase width to double
       type: "area",
       fontFamily: "Inter, sans-serif",
+
       dropShadow: {
         enabled: false,
       },
