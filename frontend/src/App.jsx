@@ -37,7 +37,7 @@ import PersonalityAssessmentPage from "./Pages/PersonalityAssessmentPage";
 import TechnicalTestResultPage from "./Pages/TechnicalTestResultPage";
 
 import ChatBot from "./components/Chatbot/GeminiComponent";
-
+import PersonalizedRoadmap from "./Pages/PersonalizedRoadmap";
 import DashboardLayout from "./components/DashboardComponents/DashboardLayout";
 import DashboardHome from "./Pages/Dashboard/DashboardHome";
 import { Calendar } from "lucide-react";
@@ -123,10 +123,6 @@ const App = () => {
               path="/interview-dashboard"
               element={<InterviewDashboard />}
             />
-            <Route
-              path="/interview-dashboard"
-              element={<InterviewDashboard />}
-            />
 
             {/* Direct Routes for Interview Pages */}
             <Route path="/CommunityPage" element={<CommunityPage />} />
@@ -148,6 +144,7 @@ const App = () => {
               element={<TechnicalTestResultPage />}
             />
             <Route path="chatbot" element={<ChatBot />} />
+            <Route path="/roadmap" element={<PersonalizedRoadmap />} />
             {/* Routes for Dashboard Pages */}
             <Route path="/dashboard" element={<DashboardLayout />}>
               <Route index element={<DashboardHome />} />

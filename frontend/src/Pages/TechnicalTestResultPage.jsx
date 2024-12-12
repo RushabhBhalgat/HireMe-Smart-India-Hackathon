@@ -1,11 +1,35 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { PieChart, Pie, Cell } from "recharts";
 import { jsPDF } from "jspdf";
 import "jspdf-autotable";
 
-const TechnicalTestResultPage = ({ results }) => {
+const ResultsPage = () => {
+  const [results, setResults] = useState(null);
+  const [error, setError] = useState(null);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    try {
+      const storedResults = localStorage.getItem("examResults");
+      if (!storedResults) {
+        setError("No results found");
+        return;
+      }
+      const parsedResults = JSON.parse(storedResults);
+      if (!parsedResults) {
+        setError("Invalid results data");
+        return;
+      }
+      setResults(parsedResults);
+    } catch (err) {
+      setError("Error loading results: " + err.message);
+    }
+  }, []);
+
   const generatePDF = () => {
-    s;
+    if (!results) return;
+
     const doc = new jsPDF();
 
     // Add title
@@ -26,27 +50,6 @@ const TechnicalTestResultPage = ({ results }) => {
       60
     );
 
-    // Add concept-wise breakdown
-    const conceptResults = results.detailed_results.reduce((acc, curr) => {
-      acc[curr.concept_tag] = acc[curr.concept_tag] || { total: 0, correct: 0 };
-      acc[curr.concept_tag].total++;
-      if (curr.is_correct) acc[curr.concept_tag].correct++;
-      return acc;
-    }, {});
-
-    let yPos = 80;
-    doc.text("Concept-wise Performance:", 20, yPos);
-    yPos += 10;
-    Object.entries(conceptResults).forEach(([concept, data]) => {
-      const percentage = ((data.correct / data.total) * 100).toFixed(2);
-      doc.text(
-        `${concept}: ${percentage}% (${data.correct}/${data.total})`,
-        25,
-        yPos
-      );
-      yPos += 10;
-    });
-
     // Add detailed results table
     const tableData = results.detailed_results.map((result, index) => [
       index + 1,
@@ -58,26 +61,53 @@ const TechnicalTestResultPage = ({ results }) => {
     ]);
 
     doc.autoTable({
-      startY: yPos + 10,
+      startY: 80,
       head: [["Q.No", "Question", "Selected", "Correct", "Concept", "Status"]],
       body: tableData,
       margin: { top: 15 },
       styles: { fontSize: 8 },
-      columnStyles: {
-        0: { cellWidth: 20 },
-        1: { cellWidth: 60 },
-        2: { cellWidth: 25 },
-        3: { cellWidth: 25 },
-        4: { cellWidth: 30 },
-        5: { cellWidth: 30 },
-      },
     });
 
     doc.save("exam_report.pdf");
   };
 
+  // Show error state
+  if (error) {
+    return (
+      <div className="min-h-screen bg-gray-50 p-8">
+        <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-lg p-6">
+          <div className="text-center text-red-600">
+            <h1 className="text-2xl font-bold mb-4">Error</h1>
+            <p>{error}</p>
+            <button
+              onClick={() => navigate("/")}
+              className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+            >
+              Return to Exam
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // Show loading state
+  if (!results) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-xl">Loading results...</div>
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen bg-gray-50 p-8">
+      <button
+        onClick={() => navigate("/roadmap")}
+        className="mt-4 w-full px-6 py-3 bg-green-500 text-white rounded-lg hover:bg-green-600"
+      >
+        View Personalized Learning Roadmap
+      </button>
       <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-lg p-6">
         <h1 className="text-2xl font-bold mb-6 text-center">Exam Results</h1>
 
@@ -140,6 +170,46 @@ const TechnicalTestResultPage = ({ results }) => {
           </div>
         </div>
 
+        {/* Detailed Results Table */}
+        <div className="mt-8">
+          <h2 className="text-xl mb-4 font-semibold">Question Details</h2>
+          <div className="overflow-x-auto">
+            <table className="min-w-full bg-white border">
+              <thead>
+                <tr className="bg-gray-50">
+                  <th className="px-4 py-2 border">Q.No</th>
+                  <th className="px-4 py-2 border">Question</th>
+                  <th className="px-4 py-2 border">Your Answer</th>
+                  <th className="px-4 py-2 border">Correct Answer</th>
+                  <th className="px-4 py-2 border">Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                {results.detailed_results.map((result, index) => (
+                  <tr
+                    key={index}
+                    className={result.is_correct ? "bg-green-50" : "bg-red-50"}
+                  >
+                    <td className="px-4 py-2 border text-center">
+                      {index + 1}
+                    </td>
+                    <td className="px-4 py-2 border">{result.question_text}</td>
+                    <td className="px-4 py-2 border text-center">
+                      {result.selected_option}
+                    </td>
+                    <td className="px-4 py-2 border text-center">
+                      {result.correct_option}
+                    </td>
+                    <td className="px-4 py-2 border text-center">
+                      {result.is_correct ? "Correct" : "Incorrect"}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
         <button
           onClick={generatePDF}
           className="mt-8 w-full px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors flex items-center justify-center gap-2"
@@ -151,4 +221,4 @@ const TechnicalTestResultPage = ({ results }) => {
   );
 };
 
-export default TechnicalTestResultPage;
+export default ResultsPage;
