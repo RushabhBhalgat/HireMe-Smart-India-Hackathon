@@ -39,6 +39,10 @@ import TechnicalTestResultPage from "./Pages/TechnicalTestResultPage";
 
 import ChatBot from "./components/Chatbot/GeminiComponent";
 import PersonalizedRoadmap from "./Pages/PersonalizedRoadmap";
+import DashboardLayout from "./components/DashboardComponents/DashboardLayout";
+import DashboardHome from "./Pages/Dashboard/DashboardHome";
+import { Calendar } from "lucide-react";
+
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [name, setName] = useState("");
@@ -61,7 +65,7 @@ const App = () => {
 
   return (
     <>
-      <div className="md:h-screen bg-purple-100">
+      <div className="md:h-screen bg-purple-200 overflow-y-auto">
         <BrowserRouter>
           <ToastContainer />
           {/* <AppNavBar
@@ -143,25 +147,25 @@ const App = () => {
               {/* Direct Routes for Insights */}
               <Route path="/Insightspage" element={<Insightspage />} />
 
-              <Route path="/technical-test" element={<TechnicalTestPage />} />
-              <Route
-                path="/attempt-tech-test"
-                element={<TechnicalTestInterface />}
-              />
-              <Route
-                path="personality-assessment"
-                element={<PersonalityAssessmentPage />}
-              />
-              <Route
-                path="technical-test-result"
-                element={<TechnicalTestResultPage />}
-              />
-              <Route path="chatbot" element={<ChatBot />} />
-              <Route path="/roadmap" element={<PersonalizedRoadmap />} />
-            </Routes>
-          </div>
-        </BrowserRouter>
-      </div>
+            <Route path="/technical-test" element={<TechnicalTestPage />} />
+            <Route
+              path="/attempt-tech-test"
+              element={<TechnicalTestInterface />}
+            />
+            <Route
+              path="personality-assessment"
+              element={<PersonalityAssessmentPage />}
+            />
+            <Route
+              path="technical-test-result"
+              element={<TechnicalTestResultPage />}
+            />
+            <Route path="chatbot" element={<ChatBot />} />
+            <Route path="/roadmap" element={<PersonalizedRoadmap />} />
+          </Routes>
+        </div>
+      </BrowserRouter>
+    </div>
     </>
   );
 };
