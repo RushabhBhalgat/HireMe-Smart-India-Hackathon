@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-// import JobList from '../components/JobList';
 import JobList from '../../components/realTimeJobs/JobList';
 import JobChart from '../../components/realTimeJobs/JobChart';
 
@@ -18,17 +17,19 @@ const RealTimeJobs = () => {
   return (
     <div className="min-h-screen bg-gray-100">
       <div className="container mx-auto p-6">
-        <h1 className="text-4xl font-semibold text-center text-gray-800 mb-8">Job Portal Dashboard</h1>
+        <h1 className="text-5xl font-bold text-center text-gray-800 mb-12">Job Portal Dashboard</h1>
 
         {/* Job Chart Section */}
-        <div className="mb-8">
-          <h2 className="text-2xl font-semibold text-gray-700 mb-4">Job Distribution Charts</h2>
-          <JobChart jobs={jobs} />
+        <div className="mb-12">
+          <h2 className="text-3xl font-semibold text-gray-800 mb-6">Job Distribution Charts</h2>
+          <div className="bg-white shadow-lg rounded-lg p-6">
+            <JobChart jobs={jobs} />
+          </div>
         </div>
 
         {/* Job Listings Section */}
         <div className="bg-white shadow-lg rounded-lg p-6">
-          <h2 className="text-2xl font-semibold text-gray-700 mb-4">Job Listings</h2>
+          <h2 className="text-3xl font-semibold text-gray-800 mb-6">Job Listings</h2>
           <JobList jobs={jobs} />
         </div>
       </div>
