@@ -1,4 +1,4 @@
-# HireMe
+# HireMe - Smart India Hackathon 2024 (LPU, Jalandhar, Punjab)
 
 
 ## Table of Contents
