@@ -3,6 +3,7 @@ import ProjectCard from "../../components/DashboardComponents/ProjectCard";
 import ImprovementChart from "../../components/DashboardComponents/ImprovementChart";
 import Cal1 from "../../components/DashboardComponents/Cal1";
 import PersonalityChart from "../../components/DashboardComponents/PersonalityChart";
+// import PerformanceDistribution from "../../components/DashboardComponents/PerformanceDistributionChart";
 
 const projects = [
   {
@@ -78,12 +79,10 @@ const Home = () => {
           <div className="w-full h-[500px] bg-white rounded-lg shadow-lg">
             <div className="p-4 border-b border-gray-200">
               <h2 className="text-2xl font-bold text-gray-800">
-                Future Component
+                {/* <PerformanceDistribution /> */}
               </h2>
             </div>
-            <div className="flex-1 h-[calc(500px-66px)] flex items-center justify-center text-gray-500">
-              Space for additional component
-            </div>
+            <div className="flex-1 h-[calc(500px-66px)] flex items-center justify-center text-gray-500"></div>
           </div>
         </div>
       </div>

@@ -3,17 +3,17 @@ import { useEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 
-import Login from "./pages/Login";
+import Login from "./Pages/Login";
 import LandingNavbar from "./components/LandingNavbar";
-import Register from "./pages/Register";
-import Home from "./pages/Home";
-import ForgotPassword from "./pages/ForgotPassword";
+import Register from "./Pages/Register";
+import Home from "./Pages/Home";
+import ForgotPassword from "./Pages/ForgotPassword";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ResetPassword from "./Pages/ResetPassword";
-import Profile from "./pages/Profile";
+import Profile from "./Pages/Profile";
 import { useState } from "react";
-import TeamPage from "./pages/TeamPage";
+import TeamPage from "./Pages/TeamPage";
 
 import CommunityPage from "./Pages/CommunityAndPeerSupport/CommunityPage";
 
@@ -37,7 +37,8 @@ import ChatBot from "./components/Chatbot/GeminiComponent";
 import PersonalizedRoadmap from "./Pages/PersonalizedRoadmap";
 import DashboardLayout from "./components/DashboardComponents/DashboardLayout";
 import DashboardHome from "./Pages/Dashboard/DashboardHome";
-
+import Resume from "./Pages/ResumePages/Resume";
+import ResumePreview from "./Pages/ResumePages/ResumePreview";
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [name, setName] = useState("");
@@ -155,6 +156,8 @@ const App = () => {
                 element={<TechnicalTestResultPage />}
               />
               <Route path="chatbot" element={<ChatBot />} />
+              <Route path="/resume/*" element={<Resume />} />
+              <Route path="/preview" element={<ResumePreview />} />
             </Routes>
           </div>
         </BrowserRouter>

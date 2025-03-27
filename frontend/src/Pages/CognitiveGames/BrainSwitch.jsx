@@ -2,8 +2,8 @@ import React, { useState, useEffect, useRef } from "react";
 import Webcam from "react-webcam";
 
 // Instruction images
-import instruction2 from "../../images/cognitive_games/BrainSwitch/instructions1.png";
-import instruction1 from "../../images/cognitive_games/BrainSwitch/instructions2.png";
+import instruction2 from "../../images/cognitive_games/BrainSwitch/Instructions1.png";
+import instruction1 from "../../images/cognitive_games/BrainSwitch/Instructions2.png";
 
 // Game images
 import q1image from "../../images/cognitive_games/BrainSwitch/image1.jpeg";
@@ -25,12 +25,12 @@ const BrainSwitch = () => {
   const [showInstructions, setShowInstructions] = useState(0); // Instruction pages
 
   const questions = [
-    { image: q1image,text: "Shape", correctAnswer: "A"},
-    { image: q2image,text: "Shape" ,correctAnswer: "D" },
-    { image: q3image,text: "Color", correctAnswer: "A" },
-    { image: q1image,text: "Color", correctAnswer: "D"},
-    { image: q2image,text: "Shape" ,correctAnswer: "D" },
-    { image: q3image,text: "Color", correctAnswer: "A" },
+    { image: q1image, text: "Shape", correctAnswer: "A" },
+    { image: q2image, text: "Shape", correctAnswer: "D" },
+    { image: q3image, text: "Color", correctAnswer: "A" },
+    { image: q1image, text: "Color", correctAnswer: "D" },
+    { image: q2image, text: "Shape", correctAnswer: "D" },
+    { image: q3image, text: "Color", correctAnswer: "A" },
   ];
 
   const timerRef = useRef();
@@ -111,8 +111,12 @@ const BrainSwitch = () => {
       {!isReady ? (
         showInstructions === 0 ? (
           <div className="modal bg-white p-6 rounded-lg shadow-lg max-w-2xl w-full text-center">
-            <h2 className="text-3xl font-semibold mb-4">Welcome to Brain Switch</h2>
-            <p className="text-lg mb-4">Follow the instructions carefully to play the game.</p>
+            <h2 className="text-3xl font-semibold mb-4">
+              Welcome to Brain Switch
+            </h2>
+            <p className="text-lg mb-4">
+              Follow the instructions carefully to play the game.
+            </p>
             <button
               onClick={() => setShowInstructions(1)}
               className="mt-6 px-6 py-3 text-white bg-purple-600 rounded hover:bg-purple-700"
@@ -155,7 +159,9 @@ const BrainSwitch = () => {
       ) : isGameOver ? (
         <div className="modal bg-white p-6 rounded-lg shadow-lg max-w-md w-full text-center">
           <h2 className="text-3xl font-semibold mb-4">Game Over</h2>
-          <p className="text-xl mb-2">Final Score: {score} / {questions.length}</p>
+          <p className="text-xl mb-2">
+            Final Score: {score} / {questions.length}
+          </p>
           <button
             onClick={() => window.location.reload()}
             className="mt-6 px-6 py-2 text-white bg-purple-600 rounded hover:bg-purple-700"
@@ -189,12 +195,13 @@ const BrainSwitch = () => {
               className="object-contain w-full h-full"
             />
           </div>
-          <p className="text-lg font-semibold">Press "A" for Yes or "D" for No</p>
+          <p className="text-lg font-semibold">
+            Press "A" for Yes or "D" for No
+          </p>
         </div>
       )}
     </div>
   );
-  
 };
 
 export default BrainSwitch;

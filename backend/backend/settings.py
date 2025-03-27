@@ -15,6 +15,7 @@ from datetime import timedelta
 from dotenv import load_dotenv
 import os
 
+
 load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -30,7 +31,10 @@ SECRET_KEY = "django-insecure-xdh*(=8*w-qn^bdn7_qrl8j0%1$lmu!w7w7dz275e@_s%o(r-q
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
+CORS_ALLOW_ALL_ORIGINS = True
+
+
 
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": (
@@ -72,6 +76,7 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
+    
 ]
 
 ROOT_URLCONF = "backend.urls"
@@ -149,6 +154,7 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5174",
     "http://localhost:5173",
+    "https://frontend-7e0gtcemx-rushabhbhalgats-projects.vercel.app"
 ]
 CORS_ALLOW_CREDENTIALS = True
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
@@ -158,6 +164,8 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = ""
 EMAIL_HOST_PASSWORD = ""
 TIME_ZONE = 'Asia/Kolkata'
+FORCE_SCRIPT_NAME = '/api'
+
 
 TEST_DEFAULT_NUM_QUESTIONS = 20  # Default 20 questions per test
 TEST_DEFAULT_TIME_LIMIT = 30  # Default 30 minutes per test

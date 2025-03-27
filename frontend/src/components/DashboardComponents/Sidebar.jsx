@@ -99,8 +99,8 @@ const Sidebar = ({ isSidebarCollapsed, toggleSidebar }) => {
     },
     {
       id: 7,
-      path: "/dashboard",
-      name: "Skill Insights",
+      path: "/Insightspage",
+      name: "Career Insights",
       icon: LuTrendingUp,
       activeIcon: (active) =>
         active ? (
@@ -111,7 +111,7 @@ const Sidebar = ({ isSidebarCollapsed, toggleSidebar }) => {
     },
     {
       id: 8,
-      path: "/dashboard",
+      path: "/RealTimeJobs",
       name: "Market Insights",
       icon: LuGlobe,
       activeIcon: (active) =>
@@ -123,7 +123,7 @@ const Sidebar = ({ isSidebarCollapsed, toggleSidebar }) => {
     },
     {
       id: 9,
-      path: "/dashboard",
+      path: "/resume",
       name: "Resume",
       icon: LuFileText,
       activeIcon: (active) =>
